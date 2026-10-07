@@ -1,0 +1,36 @@
+services:
+  mqtt:
+    image: eclipse-mosquitto:2
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    restart: unless-stopped
+
+  api:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      MQTT_HOST: mqtt
+      # THINGSPEAK_API_KEY: "SUA_WRITE_API_KEY"   # opcional
+    depends_on:
+      - mqtt
+    restart: unless-stopped
+
+  simulator:
+    build: ./simulator
+    environment:
+      MQTT_HOST: mqtt
+      EQUIPAMENTO_ID: CNC-01
+    depends_on:
+      - mqtt
+    restart: unless-stopped
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    restart: unless-stopped

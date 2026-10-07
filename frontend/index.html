@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RA Manutenção · Torno CNC 01</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body>
+  <a-scene
+    mindar-image="imageTargetSrc: ./assets/targets/targets.mind; uiScanning: no; uiLoading: no;"
+    color-space="sRGB" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-entity id="alvo" mindar-image-target="targetIndex: 0"></a-entity>
+  </a-scene>
+
+  <div id="estado" class="estado">Iniciando câmera…</div>
+  <div id="dica" class="dica">Aponte a câmera para a etiqueta do Torno CNC 01</div>
+  <div id="hotspots"></div>
+
+  <section id="painel" class="painel" hidden>
+    <header><h2 id="painel-titulo"></h2><button id="painel-fechar" aria-label="Fechar painel">Fechar</button></header>
+    <div id="painel-corpo"></div>
+    <button id="painel-atualizar" hidden>Consultar novamente</button>
+    <p class="aviso">Conteúdo didático. Valores simulados, não são limites oficiais de segurança.</p>
+  </section>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

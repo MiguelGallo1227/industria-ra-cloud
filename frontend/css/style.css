@@ -1,0 +1,32 @@
+:root{--fundo:#1b2027;--papel:#f3f1ea;--ambar:#f0aa1e;--ok:#3cc85a;--erro:#e04a4a;--texto:#e9ecef}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#000;font-family:"Segoe UI",system-ui,sans-serif;color:var(--texto)}
+a-scene{position:fixed;inset:0}
+.estado{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;z-index:20;padding:6px 12px;border-radius:4px;background:var(--fundo);border-left:5px solid #888;font-weight:700;font-size:14px}
+.estado.ativa{border-left-color:var(--ok)}
+.estado.erro{border-left-color:var(--erro)}
+.dica{position:fixed;top:calc(env(safe-area-inset-top,0px) + 52px);left:10px;right:10px;z-index:20;padding:8px 12px;background:rgba(27,32,39,.85);border-radius:4px;font-size:14px}
+.dica.oculta{display:none}
+#hotspots{position:fixed;inset:0;z-index:10;pointer-events:none}
+.hotspot{position:absolute;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:3px solid var(--fundo);background:var(--ambar);color:var(--fundo);font-weight:800;font-size:15px;pointer-events:auto;touch-action:manipulation;cursor:pointer;display:none;box-shadow:0 0 0 3px rgba(240,170,30,.45)}
+.hotspot.visivel{display:block}
+.hotspot.monitor{background:var(--ok);box-shadow:0 0 0 3px rgba(60,200,90,.45)}
+.hotspot:focus-visible,.painel button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.painel{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:60%;overflow:auto;padding:14px 16px calc(env(safe-area-inset-bottom,0px) + 14px);background:var(--papel);color:#1b2027;border-top:6px solid var(--ambar)}
+.painel[hidden]{display:none}
+.painel header{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.painel h2{margin:0;font-size:20px}
+.painel button{min-height:40px;padding:0 14px;border:0;border-radius:4px;background:var(--fundo);color:#fff;font-weight:600;cursor:pointer}
+.painel dl{margin:10px 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+.painel dt{font-weight:700}.painel dd{margin:0}
+.painel p{margin:8px 0;line-height:1.4;max-width:70ch}
+.painel .erro{background:#fbe4e4;border-left:5px solid var(--erro);padding:10px;white-space:pre-line}
+.painel .aviso{font-size:12px;color:#555}
+#painel-atualizar{margin-top:6px}
+html:has(body.demo),body.demo{height:auto;min-height:100%;overflow:auto}
+body.demo{padding:12px 12px 40vh;background:var(--fundo)}
+.aviso-demo{max-width:900px;margin:0 auto 12px;font-size:14px;line-height:1.4}
+.aviso-demo a{color:var(--ambar)}
+#demo-area{position:relative;width:min(100%,900px);margin:0 auto}
+#demo-img{width:100%;display:block}
+#demo-area #hotspots{position:absolute;inset:0}

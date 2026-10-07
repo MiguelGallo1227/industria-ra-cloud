@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modo demo (sem câmera) · Torno CNC 01</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="demo">
+  <p class="aviso-demo">Modo demo: testa hotspots e API sem câmera nem arquivo .mind. A RA de verdade está em <a href="index.html">index.html</a>.</p>
+  <div id="demo-area"><img id="demo-img" src="assets/targets/torno-cnc-01.png" alt="Target do Torno CNC 01"><div id="hotspots"></div></div>
+  <section id="painel" class="painel" hidden>
+    <header><h2 id="painel-titulo"></h2><button id="painel-fechar" aria-label="Fechar painel">Fechar</button></header>
+    <div id="painel-corpo"></div>
+    <button id="painel-atualizar" hidden>Consultar novamente</button>
+    <p class="aviso">Conteúdo didático. Valores simulados, não são limites oficiais de segurança.</p>
+  </section>
+  <script src="js/app.js"></script>
+</body>
+</html>
