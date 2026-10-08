@@ -9,27 +9,27 @@ const TIMEOUT_MS = 5000;
 
 // Proporcao altura/largura da imagem do target (1200x800 => 0.6667).
 // Se trocar a imagem, ajuste este valor.
-const TARGET_ASPECT = 800 / 1200;
+const TARGET_ASPECT = 1;
 
 // Posicoes normalizadas na imagem do target (0,0 = canto superior esquerdo; 1,1 = inferior direito)
 const HOTSPOTS = [
-  { id: "cabecote", rotulo: "1", nx: 0.30, ny: 0.69, titulo: "Cabeçote e placa", linhas: [
+  { id: "cabecote", rotulo: "1", nx: 0.12, ny: 0.40, titulo: "Cabeçote e placa", linhas: [
     ["Função", "Aloja o eixo que gira a placa, responsável por fixar e rotacionar a peça durante a usinagem."],
     ["Inspeção", "Observar fixação das castanhas, folgas visíveis e ruídos incomuns."],
     ["Manutenção", "Seguir o plano de lubrificação e inspeção do manual do fabricante."] ] },
-  { id: "torre", rotulo: "2", nx: 0.59, ny: 0.67, titulo: "Torre de ferramentas", linhas: [
+  { id: "torre", rotulo: "2", nx: 0.51, ny: 0.40, titulo: "Torre de ferramentas", linhas: [
     ["Função", "Porta-ferramentas giratório que posiciona a ferramenta de corte certa para cada operação."],
     ["Inspeção", "Verificar fixação das ferramentas e desgaste aparente das pastilhas."],
     ["Manutenção", "Limpeza de cavacos e checagem do posicionamento conforme o procedimento da empresa."] ] },
-  { id: "painel", rotulo: "3", nx: 0.83, ny: 0.69, titulo: "Painel de comando (IHM)", linhas: [
+  { id: "painel", rotulo: "3", nx: 0.32, ny: 0.30, titulo: "Painel de comando (IHM)", linhas: [
     ["Função", "Interface do comando CNC: seleção de programas, coordenadas e alarmes."],
     ["Inspeção", "Conferir mensagens de alarme, botão de emergência acessível e tela legível."],
     ["Manutenção", "Limpeza externa com máquina desligada e registro de alarmes recorrentes."] ] },
-  { id: "protecao", rotulo: "4", nx: 0.50, ny: 0.91, titulo: "Proteção da área de usinagem", linhas: [
+  { id: "protecao", rotulo: "4", nx: 0.21, ny: 0.45, titulo: "Proteção da área de usinagem", linhas: [
     ["Função", "Porta/proteção que impede acesso à área de corte durante o movimento."],
     ["Segurança", "Nunca anular intertravamentos. Siga as normas e procedimentos de segurança da empresa."],
     ["Inspeção", "Verificar integridade do visor, fechamento e funcionamento do intertravamento."] ] },
-  { id: "monitoramento", rotulo: "M", nx: 0.88, ny: 0.20, titulo: "Monitoramento (dados da API)", monitor: true },
+  { id: "monitoramento", rotulo: "M", nx: 0.40, ny: 0.17, titulo: "Monitoramento (dados da API)", monitor: true },
 ];
 
 const $ = (id) => document.getElementById(id);

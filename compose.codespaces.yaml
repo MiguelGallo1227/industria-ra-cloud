@@ -1,0 +1,35 @@
+services:
+  mqtt:
+    image: eclipse-mosquitto:2
+    network_mode: host
+    volumes:
+      - ./mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    restart: unless-stopped
+
+  api:
+    build: ./backend
+    network_mode: host
+    environment:
+      MQTT_HOST: localhost
+      TZ: America/Sao_Paulo
+    depends_on:
+      - mqtt
+    restart: unless-stopped
+
+  simulator:
+    build: ./simulator
+    network_mode: host
+    environment:
+      MQTT_HOST: localhost
+      EQUIPAMENTO_ID: CNC-01
+    depends_on:
+      - mqtt
+    restart: unless-stopped
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    restart: unless-stopped

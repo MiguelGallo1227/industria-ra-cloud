@@ -1,6 +1,7 @@
 :root{--fundo:#1b2027;--papel:#f3f1ea;--ambar:#f0aa1e;--ok:#3cc85a;--erro:#e04a4a;--texto:#e9ecef}
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;overflow:hidden;background:#000;font-family:"Segoe UI",system-ui,sans-serif;color:var(--texto)}
+html{background:#000}
+html,body{margin:0;height:100%;overflow:hidden;font-family:"Segoe UI",system-ui,sans-serif;color:var(--texto)}
 a-scene{position:fixed;inset:0}
 .estado{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;z-index:20;padding:6px 12px;border-radius:4px;background:var(--fundo);border-left:5px solid #888;font-weight:700;font-size:14px}
 .estado.ativa{border-left-color:var(--ok)}
